@@ -1,0 +1,4 @@
+vines-worker-sdk==0.0.12
+requests
+playwright
+python-dotenv==1.0.0
