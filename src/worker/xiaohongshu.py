@@ -160,6 +160,8 @@ def handler(task, workflow_context, credential_data):
     note_type = input_data.get("note_type", "image")
     ats = input_data.get("ats", [])
     topics = input_data.get("topics", [])
+    if isinstance(topics, str):
+        topics = [topics]
     video_url = input_data.get("video_url", None)
     video_cover_url = input_data.get('video_cover_url', None)
     images = input_data.get("images", [])
