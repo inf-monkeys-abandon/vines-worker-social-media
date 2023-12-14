@@ -1,3 +1,4 @@
+import re
 from src.xhs.sign import sign
 from src.xhs.core import XhsClient
 from src.xhs.utils import beauty_print
@@ -100,13 +101,6 @@ BLOCK_DEF = {
             "required": False,
         },
         {
-            "displayName": "话题信息",
-            "name": "topics",
-            "type": "collection",
-            "default": [],
-            "required": False,
-        },
-        {
             "displayName": "是否私密发布",
             "name": "is_private",
             "type": "boolean",
@@ -143,6 +137,16 @@ BLOCK_DEF = {
 }
 
 
+def extract_topics(input_string):
+    # 定义正则表达式模式
+    pattern = r'#(\w+)\[话题\]#'
+
+    # 使用正则表达式查找匹配的话题
+    topics = re.findall(pattern, input_string)
+
+    return topics
+
+
 def handler(task, workflow_context, credential_data):
     if not credential_data:
         raise Exception("请先配置小红书账号")
@@ -159,9 +163,6 @@ def handler(task, workflow_context, credential_data):
     is_private = input_data.get("is_private", False)
     note_type = input_data.get("note_type", "image")
     ats = input_data.get("ats", [])
-    topics = input_data.get("topics", [])
-    if isinstance(topics, str):
-        topics = [topics]
     video_url = input_data.get("video_url", None)
     video_cover_url = input_data.get('video_cover_url', None)
     images = input_data.get("images", [])
@@ -170,6 +171,14 @@ def handler(task, workflow_context, credential_data):
     title = input_data.get('title')
     post_time = input_data.get('post_time')
     desc = input_data.get('desc')
+
+    topics = []
+    if title:
+        topics += extract_topics(title)
+    if desc:
+        topics += extract_topics(desc)
+    topics = list(set(topics))
+    print("topics: ", topics)
 
     xhs_client = XhsClient(cookie, sign=sign)
     result = None
