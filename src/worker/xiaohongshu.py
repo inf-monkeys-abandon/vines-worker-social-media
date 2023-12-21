@@ -7,10 +7,10 @@ BLOCK_NAME = 'xiaohongshu'
 BLOCK_DEF = {
     "type": "SIMPLE",
     "name": BLOCK_NAME,
-    "categories": ["im"],
+    "categories": ["auto"],
     "displayName": "小红书",
     "description": "自动发布小红书帖子",
-    "icon": 'emoji:🤏:#fef8a3',
+    "icon": 'emoji:🤖️:#7fa3f8',
     "input": [
         {
             "displayName": "帖子类型",
