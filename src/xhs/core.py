@@ -19,8 +19,8 @@ from .help import (
     get_video_url_from_note,
     sign,
     update_session_cookies_from_cookie,
-    download_image
 )
+from ..utils import download_image
 
 
 class FeedType(Enum):

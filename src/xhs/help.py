@@ -8,27 +8,6 @@ import string
 import time
 import urllib.parse
 import requests
-from io import BytesIO
-import base64
-
-
-def download_image(url: str):
-    response = requests.get(url)
-    image_data = BytesIO(response.content)
-    return image_data
-
-
-def save_bytes_to_image(bytes_data, file_path):
-    with open(file_path, 'wb') as file:
-        file.write(bytes_data)
-
-
-def base64_to_bytes(base64_string):
-    if ',' in base64_string:
-        base64_string = base64_string.split(',')[1]
-    bytes_data = base64.b64decode(base64_string)
-    return bytes_data
-
 
 def sign(uri, data=None, ctime=None, a1="", b1=""):
     """
