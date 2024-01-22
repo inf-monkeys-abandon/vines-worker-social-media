@@ -13,9 +13,9 @@ BLOCK_NAME = 'instagram'
 BLOCK_DEF = {
     "type": "SIMPLE",
     "name": BLOCK_NAME,
-    "categories": ["im"],
-    "displayName": "小红书",
-    "description": "自动发布小红书帖子",
+    "categories": ["auto"],
+    "displayName": "Instagram",
+    "description": "自动发布 Instagram 帖子",
     "icon": 'emoji:🤏:#fef8a3',
     "input": [
         {
