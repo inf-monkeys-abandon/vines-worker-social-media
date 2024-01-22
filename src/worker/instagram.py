@@ -16,7 +16,7 @@ BLOCK_DEF = {
     "categories": ["auto"],
     "displayName": "Instagram",
     "description": "自动发布 Instagram 帖子",
-    "icon": 'emoji:🤏:#fef8a3',
+    "icon": 'emoji:🤖️:#7fa3f8',
     "input": [
         {
             "displayName": "帖子类型",
