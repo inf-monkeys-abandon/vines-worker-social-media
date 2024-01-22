@@ -46,7 +46,7 @@ BLOCK_DEF = {
         {
             "displayName": "图片列表",
             "name": "images",
-            "type": "collection",
+            "type": "string",
             "default": None,
             "required": True,
             "displayOptions": {
@@ -55,6 +55,9 @@ BLOCK_DEF = {
                         "image"
                     ]
                 }
+            },
+            "typeOptions": {
+                "multipleValues": True
             }
         },
         {
@@ -96,9 +99,12 @@ BLOCK_DEF = {
         {
             "displayName": "@用户信息",
             "name": "ats",
-            "type": "collection",
+            "type": "string",
             "default": [],
             "required": False,
+            "typeOptions": {
+                "multipleValues": True
+            }
         },
         {
             "displayName": "是否私密发布",
