@@ -49,7 +49,7 @@ class XiaohongshuWorker(Worker):
             {
                 "displayName": "图片列表",
                 "name": "images",
-                "type": "string",
+                "type": "file",
                 "default": None,
                 "required": True,
                 "displayOptions": {
@@ -60,7 +60,8 @@ class XiaohongshuWorker(Worker):
                     }
                 },
                 "typeOptions": {
-                    "multipleValues": True
+                    "multipleValues": True,
+                    "accept": ".png,.jpg,.jpeg"
                 }
             },
             {
