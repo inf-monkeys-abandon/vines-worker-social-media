@@ -4,3 +4,4 @@ playwright
 python-dotenv==1.0.0
 instagrapi
 pillow
+unstructured
