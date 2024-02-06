@@ -182,9 +182,9 @@ class XiaohongshuWorker(Worker):
 
         topics = []
         if title:
-            topics += extract_topics(title)
+            topics += self.extract_topics(title)
         if desc:
-            topics += extract_topics(desc)
+            topics += self.extract_topics(desc)
         topics = list(set(topics))
         print("topics: ", topics)
 
