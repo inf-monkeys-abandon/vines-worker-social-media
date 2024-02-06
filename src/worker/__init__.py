@@ -1,10 +1,8 @@
 import os
 from vines_worker_sdk.oss import OSSClient
 from vines_worker_sdk.conductor import ConductorClient
-from .xiaohongshu import BLOCK_DEF as XIAOHONGSHU_BLOCK_DEF, BLOCK_NAME as XIAOHONGSHU_BLOCK_NAME, \
-    handler as xiaohongshu_handler
-from .instagram import BLOCK_NAME as INSTAGRAM_BLOCK_NAME, BLOCK_DEF as INSTAGRAM_BLOCK_DEF, \
-    handler as instagram_handler
+from .xiaohongshu import XiaohongshuWorker
+from .instagram import InstagramWorker
 
 SERVICE_REGISTRATION_URL = os.environ.get("SERVICE_REGISTRATION_URL")
 SERVICE_REGISTRATION_TOKEN = os.environ.get("SERVICE_REGISTRATION_TOKEN")
@@ -54,7 +52,5 @@ conductor_client = ConductorClient(
     external_storage=oss_client,
 )
 
-conductor_client.register_block(XIAOHONGSHU_BLOCK_DEF)
-conductor_client.register_handler(XIAOHONGSHU_BLOCK_NAME, xiaohongshu_handler)
-conductor_client.register_block(INSTAGRAM_BLOCK_DEF)
-conductor_client.register_handler(INSTAGRAM_BLOCK_NAME, instagram_handler)
+conductor_client.register_worker(XiaohongshuWorker())
+conductor_client.register_worker(InstagramWorker())

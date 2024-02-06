@@ -1,5 +1,6 @@
-vines-worker-sdk==0.0.13
+vines-worker-sdk==0.0.19
 requests
 playwright
 python-dotenv==1.0.0
 instagrapi
+pillow
